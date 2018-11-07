@@ -1,0 +1,16 @@
+.slogan {
+    font-size: 1.4em;
+    padding: 1em;
+    font-family: 'Quattrocentro';
+    line-height: 1.2;
+}
+
+.slogan span {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+}
+
+.slogan .tag {
+    text-align: center;
+    margin-top: 0.75em;
+}
