@@ -5,8 +5,9 @@ import {
     createStore
 } from 'redux';
 import authReducer from './reducers/authReducer';
+import jwtDecode from 'jwt-decode';
 import { loadAuthToken } from './local-storage';
-import { setAuth } from './actions/auth';
+import { setAuth, authSuccess } from './actions/auth';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 
@@ -21,7 +22,9 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const authToken = loadAuthToken();
 if(authToken){
+    const decodedToken = jwtDecode(authToken);
     store.dispatch(setAuth(authToken));
+    store.dispatch(authSuccess(decodedToken));
 }
 
 export default store;

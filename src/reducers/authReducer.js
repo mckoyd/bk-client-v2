@@ -16,7 +16,9 @@ const initState = {
 export default (state=initState, action) => {
     switch(action.type){
         case SET_AUTH:
-            return { ...state, authToken: action.authToken };
+            return { ...state, 
+                authToken: action.authToken
+            };
         case CLEAR_AUTH:
             return {
                 ...state,
@@ -35,6 +37,8 @@ export default (state=initState, action) => {
             return {
                 ...state,
                 loading: false,
+                user: null,
+                authToken: null,
                 error: action.err
             }
         case AUTH_SUCCESS:

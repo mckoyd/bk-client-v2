@@ -37,7 +37,7 @@ export const registerParent = (username, password) => dispatch => {
             if(!res.ok) res.json()
                 .then(err => dispatch(authError(err)))
             else res.json()
-                .then(token => console.log(token))
+                .then(({ token }) => storeAuthInfo(token, dispatch))
         })
         .catch(err => console.log(err))
     );
