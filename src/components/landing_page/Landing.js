@@ -3,6 +3,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Slogan } from './Slogan';
 import LoginFormParent from './LoginFormParent';
+import LoginFormChild from './LoginFormChild';
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
@@ -15,6 +16,7 @@ export const Landing = props => {
         <main>
             <Slogan />
             <LoginFormParent />
+            <LoginFormChild />
         </main>
     )
 }

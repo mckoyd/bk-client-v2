@@ -7,31 +7,31 @@ import {
 import { Input } from '../Input';
 import { nonEmpty, required } from '../../validators';
 import React from 'react';
-import { loginParent } from '../../actions/auth';
+import { loginChild } from '../../actions/auth';
 
 const mapStateToProps = state => ({
     error: state.auth.error
 })
 
-const LoginFormParent = props => {
+const LoginFormChild = props => {
     let error;
     if(props.error) props.error.username ? error = <div className='form-error'>{props.error.username}</div> : error = <div className='form-error'>{props.error.password}</div>
     return(
-        <form className='parent-login'
-            onSubmit={props.handleSubmit(inp => props.dispatch(loginParent(inp.parentUsername, inp.parentPassword)))}>
+        <form className='child-login'
+            onSubmit={props.handleSubmit(inp => props.dispatch(loginChild(inp.childUsername, inp.childPassword)))}>
             {error}
-            <label htmlFor='parentUsername'>username</label>
+            <label htmlFor='childUsername'>username</label>
             <Field component={Input}
-                name='parentUsername'
-                placeholder='ex. bestparent'
+                name='childUsername'
+                placeholder='ex. bestchild'
                 type='text'
-                id='parentUsername'
+                id='childUsername'
                 validate={[required, nonEmpty]} />
-            <label htmlFor='parentPassword'>password</label>
+            <label htmlFor='childPassword'>password</label>
             <Field component={Input}
-                name='parentPassword'
+                name='childPassword'
                 type='password'
-                id='parentPassword'
+                id='childPassword'
                 validate={[required, nonEmpty]} />
             <button className='login-btn'
                 disabled={props.pristine || props.submitting}>
@@ -42,7 +42,7 @@ const LoginFormParent = props => {
 };
 
 export default reduxForm({
-    form: 'loginParent',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('loginParent', 'parentUsername'))
-})(connect(mapStateToProps)(LoginFormParent));
+    form: 'loginChild',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('loginChild', 'childUsername'))
+})(connect(mapStateToProps)(LoginFormChild));
 

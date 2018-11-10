@@ -25,7 +25,7 @@ export const storeAuthInfo = (authToken, dispatch) => {
     saveAuthToken(authToken);
 }
 
-export const registerParent = (username, password) => dispatch => {
+export const loginParent = (username, password) => dispatch => {
     dispatch(authRequest());
     return (
         fetch(`${API_BASE_URL}/users/login_parent`, {
@@ -43,5 +43,21 @@ export const registerParent = (username, password) => dispatch => {
     );
 }
 
-
+export const loginChild = (username, password) => dispatch => {
+    dispatch(authRequest());
+    return (
+        fetch(`${API_BASE_URL}/users/login_child`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }) 
+        })
+        .then(res => {
+            if(!res.ok) res.json()
+                .then(err => dispatch(authError(err)))
+            else res.json()
+                .then(({ token }) => storeAuthInfo(token, dispatch))
+        })
+        .catch(err => console.log(err))
+    );
+}
 
