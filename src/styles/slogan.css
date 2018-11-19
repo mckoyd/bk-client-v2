@@ -1,16 +1,26 @@
 .slogan {
-    font-size: 1.4em;
+    font-size: 1.2em;
     padding: 1em;
     font-family: 'Quattrocentro';
     line-height: 1.2;
 }
 
+.slogan h3 {
+    font-size: 1em;
+}
+
 .slogan span {
     font-family: 'Oswald';
     text-transform: uppercase;
+    color: #006060;
+    cursor: pointer;
 }
 
 .slogan .tag {
     text-align: center;
     margin-top: 0.75em;
+}
+
+.slogan span:hover {
+    border-bottom: 1px dashed #006060;
 }

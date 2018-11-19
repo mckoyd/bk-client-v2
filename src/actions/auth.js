@@ -18,6 +18,9 @@ export const authSuccess = user => ({ type: AUTH_SUCCESS, user});
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = err => ({ type: AUTH_ERROR, err });
 
+export const CHILD_AUTH_ERROR = 'CHILD_AUTH_ERROR';
+export const childAuthError = err => ({ type: CHILD_AUTH_ERROR, err })
+
 export const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuth(authToken));
@@ -61,3 +64,54 @@ export const loginChild = (username, password) => dispatch => {
     );
 }
 
+export const signupParent = (username, password, password2, name, email) => dispatch => {
+    return (
+        fetch(`${API_BASE_URL}/users/register_parent`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, password2, name, email }) 
+        })
+        .then(res => {
+            if(!res.ok) res.json()
+                .then(err => dispatch(authError(err)))
+            else res.json()
+                .then(() => dispatch(loginParent(username, password)))
+        })
+        .catch(err => console.log(err))
+    );
+}
+
+export const signupChild = (username, name, password, password2) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return (
+        fetch(`${API_BASE_URL}/users/register_child`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authToken}` },
+            body: JSON.stringify({ username, name, password, password2})
+        })
+        .then(res => {
+            if(!res.ok) res.json()
+                .then(err => dispatch(childAuthError(err)))
+            else res.json()
+                .then(res => dispatch(refreshAuthToken()))
+        })
+        .catch(err => console.log(err))
+    )
+}
+
+export const refreshAuthToken = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return (
+        fetch(`${API_BASE_URL}/users/refresh`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${authToken}`}
+        })
+        .then(res => {
+            if(!res.ok) res.json()
+                .then(err => dispatch(authError(err)))
+            else res.json()
+                .then(({token}) => storeAuthInfo(token, dispatch))
+        })
+        .catch(err => console.log(err))
+    );
+}

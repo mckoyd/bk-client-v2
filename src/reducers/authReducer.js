@@ -3,7 +3,8 @@ import {
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_ERROR,
-    AUTH_SUCCESS
+    AUTH_SUCCESS,
+    CHILD_AUTH_ERROR
 } from '../actions/auth';
 
 const initState = {
@@ -40,6 +41,12 @@ export default (state=initState, action) => {
                 user: null,
                 authToken: null,
                 error: action.err
+            }
+        case CHILD_AUTH_ERROR:
+            return {
+                ...state, 
+                error: action.err,
+                loading: false
             }
         case AUTH_SUCCESS:
             return {

@@ -34,6 +34,7 @@ const LoginFormChild = props => {
                 id='childPassword'
                 validate={[required, nonEmpty]} />
             <button className='login-btn'
+                type='submit'
                 disabled={props.pristine || props.submitting}>
                 log in
             </button>

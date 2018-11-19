@@ -1,4 +1,7 @@
 .app {
     height: 100vh;
-    background-color: lavender;
+    overflow-y: scroll;
+    background-color: rgb(223, 228, 255);
+    display: flex;
+    flex-direction: column;
 }

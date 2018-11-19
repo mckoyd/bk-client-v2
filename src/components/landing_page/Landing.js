@@ -2,23 +2,37 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Slogan } from './Slogan';
-import LoginFormParent from './LoginFormParent';
-import LoginFormChild from './LoginFormChild';
+import LoginForms from './LoginForms';
+import { MdExpandMore } from 'react-icons/md';
+import '../../styles/landing.css';
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
-    isParent: state.auth.isParent,
+    user: state.auth.user,
+    loading: state.auth.loading
 });
 
-export const Landing = props => {
-    if(props.loggedIn) return <Redirect to='/dashboard_parent' />;
-    return(
-        <main>
+const Landing = props => (props.loading) ? (
+        <section className="wrapper">
+            <div className="spinner">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            </div>
+        </section>
+    )
+    : (props.loggedIn && props.user.isParent) ? <Redirect to='/dashboard_parent' /> :
+    (
+        <main className='landing'>
             <Slogan />
-            <LoginFormParent />
-            <LoginFormChild />
+            <LoginForms />
+            <div className='divider'></div>
+            <MdExpandMore className='next-page' />
         </main>
     )
-}
 
 export default connect(mapStateToProps)(Landing);

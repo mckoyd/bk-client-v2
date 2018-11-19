@@ -1,0 +1,89 @@
+.signup-page {
+    overflow: scroll;
+}
+
+.signup-greeting, .child-signup-greeting {
+    text-align: center;
+    width: 75%;
+    margin: 0.5em auto;
+    font-size: 1.5em;
+}
+
+.signup-greeting span,
+.child-signup-greeting span {
+    font-family: 'Oswald';
+    color: #006060;
+    text-transform: uppercase;
+}
+
+.parent-signup, .child-signup {
+    margin: 1em auto;
+    width: 80%;
+    box-shadow: 5px 5px 5px #404d48;
+    border-radius: 10px;
+    font-family: 'Quattrocentro';
+    background-color: white;
+}
+
+.parent-signup .parent-form-heading,
+.child-signup .child-form-heading {
+    margin: 0 auto 0.5em auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #006060;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    text-align: center;
+    padding: 1em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.parent-signup .form-error,
+.child-signup .form-error {
+    color: crimson;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    text-align: center;
+    border: 1px dashed crimson;
+    padding: 0.3em;
+    margin-bottom: 0.3em;
+    white-space: pre-line;
+}
+
+.signup-form-body {
+    padding: 0.8em;
+}
+
+.signup-form-body label {
+    text-transform: capitalize;
+    color: #006060;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.signup-form-body .form-input {
+    margin: 0 auto 1em auto;
+    border-bottom: 1px inset #006060;
+}
+
+.signup-form-body .form-input input {
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+}
+
+.signup-form-body .login-btn {
+    background-color: #006060;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    padding: 0.3em;
+    text-transform: uppercase;
+    width: 50%;
+    padding: 0.5em 0;
+    color: white;
+    font-family: 'Oswald';
+}

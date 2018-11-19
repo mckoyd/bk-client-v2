@@ -1,15 +1,15 @@
 import { Logo } from './Logo';
-import { MenuButton } from './MenuButton';
+import { FiPlusSquare } from 'react-icons/fi';
 import React from 'react';
 import '../styles/header.css'
 
 export const Header = props => (
-    <div className='header'>
+    <header className='header'>
         <div className='left-header'>
             <Logo />
         </div>
         <div className='right-header'>
-            <MenuButton />
+            <FiPlusSquare />
         </div>
-    </div>
+    </header>
 );

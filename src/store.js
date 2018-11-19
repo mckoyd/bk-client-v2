@@ -10,10 +10,12 @@ import { loadAuthToken } from './local-storage';
 import { setAuth, authSuccess } from './actions/auth';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
+import toggleReducer from './reducers/toggleReducer';
 
 const rootReducer = combineReducers({
     form: formReducer,
-    auth: authReducer
+    auth: authReducer,
+    toggles: toggleReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

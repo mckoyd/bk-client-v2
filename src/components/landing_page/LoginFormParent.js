@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 
 const LoginFormParent = props => {
     let error;
-    if(props.error) props.error.username ? error = <div className='form-error'>{props.error.username}</div> : error = <div className='form-error'>{props.error.password}</div>
+    if(props.error) error = <div className='form-error'>{Object.values(props.error)}</div>;
     return(
         <form className='parent-login'
             onSubmit={props.handleSubmit(inp => props.dispatch(loginParent(inp.parentUsername, inp.parentPassword)))}>
@@ -34,6 +34,7 @@ const LoginFormParent = props => {
                 id='parentPassword'
                 validate={[required, nonEmpty]} />
             <button className='login-btn'
+                type='submit'
                 disabled={props.pristine || props.submitting}>
                 log in
             </button>

@@ -1,0 +1,86 @@
+.login-forms {
+    margin: 0 auto;
+    width: 75%;
+    box-shadow: 5px 5px 5px #404d48;
+    border-radius: 10px;
+    font-family: 'Quattrocentro';
+    background-color: white;
+}
+
+.login-choice .parent-choice, 
+.login-choice .child-choice {
+    width: 50%;
+    padding: .5em;
+    font-size: 0.9em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .1em;
+    cursor: pointer;
+    font-family: 'Oswald';
+    border: none;
+    background-color: transparent;
+}
+
+.login-choice .parent-choice {
+    border-top-left-radius: 10px;
+}
+
+.login-choice .child-choice {
+    border-top-right-radius: 10px;
+}
+
+.login-forms form {
+    padding: 0.8em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.login-forms form label {
+    font-size: 1em;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    color: #006060;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.login-forms form .form-input {
+    margin: 0 auto 1em auto;
+    font-size: 1em;
+    padding: 0.3em;
+    text-align: left;
+    border: none;
+    border-bottom: 1px inset #006060;
+}
+
+.login-forms form .form-input input {
+    width: 100%;
+    border: none;
+    padding: 0.5em 0;
+}
+
+.login-forms form .form-error {
+    color: crimson;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    text-align: center;
+    border: 1px dashed crimson;
+    padding: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+.login-forms .login-btn {
+    border-radius: 10px;
+    background-color: #006060;
+    display: block;
+    margin: 0 auto;
+    padding: 0.3em;
+    text-transform: uppercase;
+    width: 50%;
+    padding: 0.5em 0;
+    color: white;
+    font-family: 'Oswald';
+}
