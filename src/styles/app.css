@@ -1,5 +1,4 @@
 .app {
-    height: 100vh;
     overflow-y: scroll;
     background-color: rgb(223, 228, 255);
     display: flex;

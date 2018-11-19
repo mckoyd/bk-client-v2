@@ -12,6 +12,10 @@
     font-size: 4em;
 }
 
+.wrapper {
+  height: 90vh;
+}
+
 section.wrapper {
     padding: 40px 0;
   }

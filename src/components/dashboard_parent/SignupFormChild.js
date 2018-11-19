@@ -10,6 +10,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import '../../styles/signup.css';
 import { signupChild } from '../../actions/auth';
+import { toggleAddChild } from '../../actions/toggles';
 
 
 
@@ -38,7 +39,7 @@ const SignupFormChild = props => {
                             signupName, 
                             signupPassword, 
                             signupConfirmPassword))
-                        return <Redirect to='/' />;
+                        props.dispatch(toggleAddChild())
                     }
                 )} >
                 <h3 className='child-form-heading'>Add a Child Account</h3>

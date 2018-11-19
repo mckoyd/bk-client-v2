@@ -9,13 +9,15 @@ import jwtDecode from 'jwt-decode';
 import { loadAuthToken } from './local-storage';
 import { setAuth, authSuccess } from './actions/auth';
 import { reducer as formReducer } from 'redux-form';
+import tasksReducer from './reducers/tasksReducer';
 import thunk from 'redux-thunk';
 import toggleReducer from './reducers/toggleReducer';
 
 const rootReducer = combineReducers({
     form: formReducer,
     auth: authReducer,
-    toggles: toggleReducer
+    toggles: toggleReducer,
+    tasks: tasksReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

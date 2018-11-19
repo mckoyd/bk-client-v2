@@ -1,11 +1,11 @@
 .header {
     display: flex;
-    padding: 0 0 0.3em 0;
+    padding: 0.7em 0 0.3em 0;
+    height: 10vh;
 }
 
 .left-header, .right-header {
     width: 50vw;
-    height: 10vh;
     display: flex;
     align-items: center;
 }

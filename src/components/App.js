@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Header } from './Header';
+import Header from './Header';
 import Landing from './landing_page/Landing';
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
