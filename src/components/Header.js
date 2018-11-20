@@ -6,7 +6,7 @@ import SideNav from './SideNav';
 import '../styles/header.css'
 import { toggleSideNav } from '../actions/toggles';
 
-const Header = props => (
+export const Header = props => (
     <header className='header'>
         <div className='left-header'>
             <Logo />

@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     user: state.auth.user,
     sideNavView: state.toggles.sideNav.menuView
 })
-const SideNav = props => props.loggedIn ?
+export const SideNav = props => props.loggedIn ?
         <div className={props.sideNavView ? 'menu visible' : 'menu'}>
             <FiMinusSquare onClick={() => props.dispatch(toggleSideNav())}/>
             <button onClick={() => props.dispatch(toggleAddChild())}>add a child</button>

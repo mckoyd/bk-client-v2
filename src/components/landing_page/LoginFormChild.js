@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
     error: state.auth.error
 })
 
-const LoginFormChild = props => {
+export const LoginFormChild = props => {
     let error;
     if(props.error) props.error.username ? error = <div className='form-error'>{props.error.username}</div> : error = <div className='form-error'>{props.error.password}</div>
     return(

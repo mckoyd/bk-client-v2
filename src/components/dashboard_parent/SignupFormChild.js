@@ -7,7 +7,6 @@ import {
 import { Input } from '../Input';
 import { nonEmpty, required, isTrimmed, matches } from '../../validators';
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import '../../styles/signup.css';
 import { signupChild } from '../../actions/auth';
 import { toggleAddChild } from '../../actions/toggles';
@@ -20,7 +19,7 @@ const mapStateToProps = state => ({
     error: state.auth.error,
     user: state.auth.user
 })
-const SignupFormChild = props => {
+export const SignupFormChild = props => {
     let error;
     if(props.error) error = <div className='form-error'>{Object.values(props.error).join('\n')}</div>;
     return(

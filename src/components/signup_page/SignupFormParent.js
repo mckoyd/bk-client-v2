@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
     error: state.auth.error,
     isParent: state.auth.user ? state.auth.user.isParent : false
 })
-const SignupFormParent = props => {
+export const SignupFormParent = props => {
     let error;
     if(props.error) error = <div className='form-error'>{Object.values(props.error).join('\n')}</div>;
     if(props.loggedIn && props.isParent) return <Redirect to='/dashboard_parent' />;

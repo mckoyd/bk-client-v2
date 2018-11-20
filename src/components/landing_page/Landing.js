@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
     loading: state.auth.loading
 });
 
-const Landing = props => (props.loading) ? (
+export const Landing = props => (props.loading) ? (
         <section className="wrapper">
             <div className="spinner">
             <i></i>

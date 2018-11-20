@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     parentLogin: state.toggles.loginChoice.parent,
     childLogin: state.toggles.loginChoice.child
 });
-const LoginForms = props => {
+export const LoginForms = props => {
     const clicked = { 
         border: 'inset', 
         backgroundColor: 'rgb(0, 96, 96)',
