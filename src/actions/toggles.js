@@ -6,3 +6,6 @@ export const toggleSideNav = () => ({ type: TOGGLE_SIDE_NAV });
 
 export const TOGGLE_ADD_CHILD = 'TOGGLE_ADD_CHILD';
 export const toggleAddChild = () => ({ type: TOGGLE_ADD_CHILD });
+
+export const TOGGLE_ADD_TASK = 'TOGGLE_ADD_TASK';
+export const toggleAddTask = childId => ({ type: TOGGLE_ADD_TASK, childId });

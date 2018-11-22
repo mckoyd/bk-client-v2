@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
     Field, 
     focus, 
-    reduxForm
+    reduxForm,
+    reset
 } from 'redux-form';
 import { Input } from '../Input';
 import { nonEmpty, required } from '../../validators';
@@ -44,6 +45,7 @@ export const LoginFormParent = props => {
 
 export default reduxForm({
     form: 'loginParent',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('loginParent', 'parentUsername'))
+    onSubmitFail: (errors, dispatch) => dispatch(focus('loginParent', 'parentUsername')),
+    onSubmitSuccess: (error, dispatch) => dispatch(reset('loginParent'))
 })(connect(mapStateToProps)(LoginFormParent));
 

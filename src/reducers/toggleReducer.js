@@ -1,8 +1,14 @@
-import { TOGGLE_LOGIN_CHOICE, TOGGLE_SIDE_NAV, TOGGLE_ADD_CHILD } from "../actions/toggles";
+import { 
+    TOGGLE_LOGIN_CHOICE, 
+    TOGGLE_SIDE_NAV, 
+    TOGGLE_ADD_CHILD, 
+    TOGGLE_ADD_TASK 
+} from "../actions/toggles";
 
 
 const initState = {
     loginChoice: { parent: true, child: false },
+    addTask: { view: false, childId: null },
     sideNav: {
         menuView: false,
         seeTasks: true,
@@ -29,14 +35,20 @@ export default (state=initState, action) => {
                     }
                 }
         case TOGGLE_ADD_CHILD:
-                return {
-                    ...state,
-                    sideNav: {
-                        ...state.sideNav,
-                        menuView: false,
-                        addChild: !state.sideNav.addChild
-                    }
+            return {
+                ...state,
+                sideNav: {
+                    ...state.sideNav,
+                    menuView: false,
+                    addChild: !state.sideNav.addChild
                 }
+            }
+        case TOGGLE_ADD_TASK:
+            return {
+                ...state, addTask: {
+                    view: !state.addTask.view, childId: action.childId
+                }
+            }
         default:
             return state;
     }

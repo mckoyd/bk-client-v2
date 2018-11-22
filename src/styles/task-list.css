@@ -1,0 +1,32 @@
+.task-list .task {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em;
+    /* text-transform: uppercase; */
+    max-height: 4.3vh;
+    font-size: 0.8em;
+    border: outset;
+    border-color: #558993;
+    border-radius: 5px;
+    margin-bottom: 0.4em;
+    overflow-y: scroll;
+}
+
+.task .title {
+    max-width: 80%;
+    
+}
+
+.task-list .task .points-preview {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+.task-list .task .points-preview span {
+    margin-right: 0.3em;
+}
+
+.task-list .task img {
+    max-width: 100%;
+    max-height: 100%;
+}

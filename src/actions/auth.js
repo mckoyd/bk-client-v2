@@ -42,7 +42,7 @@ export const loginParent = (username, password) => dispatch => {
             else res.json()
                 .then(({ token }) => storeAuthInfo(token, dispatch))
         })
-        .catch(err => console.log(err))
+        .catch(err => dispatch(authError(err)))
     );
 }
 

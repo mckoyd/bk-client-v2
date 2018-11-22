@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
     Field, 
     focus, 
-    reduxForm
+    reduxForm,
+    reset
 } from 'redux-form';
 import { Input } from '../Input';
 import { nonEmpty, required, isTrimmed, matches } from '../../validators';
@@ -77,7 +78,12 @@ export const SignupFormChild = props => {
                     <button className='login-btn'
                         type='submit'
                         disabled={props.pristine || props.submitting}>
-                        log in
+                        add child
+                    </button>
+                    <button className='cancel-signup'
+                    type='button'
+                    onClick={() => props.dispatch(toggleAddChild())}>
+                    cancel
                     </button>
                 </div>
             </form>
@@ -86,6 +92,7 @@ export const SignupFormChild = props => {
 };
 
 export default reduxForm({
-    form:'child-signup',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('child-signup', 'signupName'))
+    form: 'child-signup',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('child-signup', 'signupName')),
+    onSubmitSuccess: (error, dispatch) => dispatch(reset('child-signup'))
 })(connect(mapStateToProps)(SignupFormChild));

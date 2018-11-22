@@ -1,5 +1,6 @@
-.signup-page {
+.child-signup-form {
     overflow: scroll;
+    height: 90vh;
 }
 
 .signup-greeting, .child-signup-greeting {
@@ -16,7 +17,9 @@
     text-transform: uppercase;
 }
 
-.parent-signup, .child-signup {
+.parent-signup, 
+.child-signup,
+.add-task-form {
     margin: 1em auto;
     width: 80%;
     box-shadow: 5px 5px 5px #404d48;
@@ -26,7 +29,8 @@
 }
 
 .parent-signup .parent-form-heading,
-.child-signup .child-form-heading {
+.child-signup .child-form-heading,
+.add-task-form .add-task-heading {
     margin: 0 auto 0.5em auto;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -41,7 +45,8 @@
 }
 
 .parent-signup .form-error,
-.child-signup .form-error {
+.child-signup .form-error,
+.add-task-form .form-error {
     color: crimson;
     text-transform: uppercase;
     font-size: 0.7em;
@@ -52,38 +57,47 @@
     white-space: pre-line;
 }
 
-.signup-form-body {
+.signup-form-body, .add-task-body {
     padding: 0.8em;
 }
 
-.signup-form-body label {
+.signup-form-body label,
+.add-task-body label {
     text-transform: capitalize;
     color: #006060;
     font-weight: 600;
     letter-spacing: 0.03em;
 }
 
-.signup-form-body .form-input {
+.signup-form-body .form-input,
+.add-task-body .form-input {
     margin: 0 auto 1em auto;
     border-bottom: 1px inset #006060;
 }
 
-.signup-form-body .form-input input {
+.signup-form-body .form-input input,
+.add-task-body .form-input input {
     width: 100%;
     padding: 0.5em;
     border: none;
 }
 
-.signup-form-body .login-btn {
+.signup-form-body .login-btn,
+.signup-form-body .cancel-signup,
+.add-task-body .add-task-btn,
+.add-task-body .cancel-add-task {
     background-color: #006060;
     border-radius: 10px;
     color: white;
-    display: block;
-    margin: 0 auto;
     padding: 0.3em;
     text-transform: uppercase;
     width: 50%;
     padding: 0.5em 0;
     color: white;
     font-family: 'Oswald';
+}
+
+.signup-form-body .cancel-signup,
+.add-task-body .cancel-add-task {
+    background-color: #9c1a33;
 }

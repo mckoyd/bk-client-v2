@@ -13,24 +13,17 @@ const mapStateToProps = state => ({
     addChild: state.toggles.sideNav.addChild
 });
 
-export class Dashboard extends React.Component {
-    logOut(){
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-
-    render(){
-        if(!this.props.loggedIn || !this.props.user.isParent) return <Redirect to='/' />;
-        return(
-            <div>
-                {this.props.user.isParent ? 
-                        Object.keys(this.props.user.childId).length === 0 || this.props.addChild ? (<SignupFormChild />) 
-                            : <ParentCards />
-                                : <h1>Welcome Kid! username: {this.props.user.username}</h1>}
-                <button onClick={() => this.logOut()}>log out</button>
-            </div>
-        )
-    }
+export const Dashboard = props => {
+    if(!props.loggedIn || !props.user.isParent) return <Redirect to='/' />;
+    return(
+        <div>
+            {props.user.isParent ? 
+                Object.keys(props.user.childId).length === 0 || props.addChild ? 
+                    (<SignupFormChild />) 
+                        : <ParentCards />
+                        : <h1>Welcome Kid! username: {props.user.username}</h1>}
+        </div>
+    )
 }
 
 export default connect(mapStateToProps)(Dashboard);

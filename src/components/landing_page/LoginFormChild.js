@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import {
     Field, 
     focus, 
-    reduxForm
+    reduxForm,
+    reset
 } from 'redux-form';
 import { Input } from '../Input';
 import { nonEmpty, required } from '../../validators';
@@ -18,7 +19,11 @@ export const LoginFormChild = props => {
     if(props.error) props.error.username ? error = <div className='form-error'>{props.error.username}</div> : error = <div className='form-error'>{props.error.password}</div>
     return(
         <form className='child-login'
-            onSubmit={props.handleSubmit(inp => props.dispatch(loginChild(inp.childUsername, inp.childPassword)))}>
+            onSubmit={props.handleSubmit(inp => {
+                props.dispatch(loginChild(inp.childUsername, inp.childPassword))
+                props.resetForm();
+                })
+            }>
             {error}
             <label htmlFor='childUsername'>username</label>
             <Field component={Input}
@@ -44,6 +49,7 @@ export const LoginFormChild = props => {
 
 export default reduxForm({
     form: 'loginChild',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('loginChild', 'childUsername'))
+    onSubmitFail: (errors, dispatch) => dispatch(focus('loginChild', 'childUsername')),
+    onSubmitSuccess: (error, dispatch) => dispatch(reset('loginChild'))
 })(connect(mapStateToProps)(LoginFormChild));
 

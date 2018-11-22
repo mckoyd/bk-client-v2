@@ -48,7 +48,7 @@
 }
 
 .login-forms form .form-input {
-    margin: 0 auto 1em auto;
+    margin: 0 0 1em 0;
     font-size: 1em;
     padding: 0.3em;
     text-align: left;
@@ -59,7 +59,7 @@
 .login-forms form .form-input input {
     width: 100%;
     border: none;
-    padding: 0.5em 0;
+    padding: 0.5em;
 }
 
 .login-forms form .form-error {

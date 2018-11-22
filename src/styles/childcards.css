@@ -64,9 +64,10 @@
     border-radius: 5px;
     margin: 0.3em;
     padding: 0.2em;
-    max-height: 15vh;
+    max-height: 16vh;
     text-align: left;
     background-color: white;
+    overflow: auto;
 }
 
 .child-card .add-btn {
