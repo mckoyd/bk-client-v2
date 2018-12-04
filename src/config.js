@@ -1,1 +1,1 @@
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://bonuskidserver.herokuapp.com/api/v2'
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://bonuskidserver.herokuapp.com'

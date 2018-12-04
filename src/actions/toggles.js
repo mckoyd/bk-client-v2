@@ -9,3 +9,6 @@ export const toggleAddChild = () => ({ type: TOGGLE_ADD_CHILD });
 
 export const TOGGLE_ADD_TASK = 'TOGGLE_ADD_TASK';
 export const toggleAddTask = childId => ({ type: TOGGLE_ADD_TASK, childId });
+
+export const TOGGLE_TASK_DETAILS = 'TOGGLE_TASK_DETAILS';
+export const toggleTaskDetails = task => ({ type: TOGGLE_TASK_DETAILS, task });

@@ -7,25 +7,25 @@ const mapStateToProps = state => ({
     loading: state.tasks.loading
 })
 export const TaskList = props => 
-    // props.loading ?  
-    // <section className="wrapper">
-    //     <div className="spinner">
-    //         <i></i>
-    //         <i></i>
-    //         <i></i>
-    //         <i></i>
-    //         <i></i>
-    //         <i></i>
-    //         <i></i>
-    //     </div>
-    // </section> : 
+    props.loading ?  
+    <section className="wrapper">
+        <div className="spinner">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </section> : 
     (
     <ul className='task-list'>
         {props.child.tasks.length === 0 ? 
         <li>
             <p className='empty'>Add a task below...</p>
         </li> : 
-        props.child.tasks.map((task, i) => (
+        props.child.tasks.reverse().map((task, i) => (
         <li className='task' key={i}>
             <p className='title'>{task.name}</p>
             <p className='points-preview'>

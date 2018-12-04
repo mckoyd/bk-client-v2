@@ -40,7 +40,6 @@ export const postTask = (name, pointValue, childId) => (dispatch, getState) => {
     const authToken = getState().auth.authToken
     fetch(`${API_BASE_URL}/tasks`, {
         method: 'POST',
-        mode: 'cors',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authToken}` },
         body: JSON.stringify({name, pointValue, childId})
     })
