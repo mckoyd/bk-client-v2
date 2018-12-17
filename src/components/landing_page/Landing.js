@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
-import React from 'react';
+import { Loader } from '../Loader';
+import { MdExpandMore } from 'react-icons/md';
 import { Redirect } from 'react-router-dom';
 import { Slogan } from './Slogan';
+
+import React from 'react';
 import LoginForms from './LoginForms';
-import { MdExpandMore } from 'react-icons/md';
+
 import '../../styles/landing.css';
 
 const mapStateToProps = state => ({
@@ -12,20 +15,8 @@ const mapStateToProps = state => ({
     loading: state.auth.loading
 });
 
-export const Landing = props => (props.loading) ? (
-        <section className="wrapper">
-            <div className="spinner">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            </div>
-        </section>
-    )
-    : (props.loggedIn && props.user.isParent) ? <Redirect to='/dashboard_parent' /> :
+export const Landing = props => props.loading ? <Loader /> : 
+    props.loggedIn && props.user.isParent ? <Redirect to='/dashboard_parent' /> :
     (
         <main className='landing'>
             <Slogan />
