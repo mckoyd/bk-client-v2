@@ -5,6 +5,7 @@ import Header from './Header';
 import Landing from './landing_page/Landing';
 import React from 'react';
 import SignupFormParent from './signup_page/SignupFormParent';
+import SignupPage from './signup_page/SignupPage';
 import '../styles/app.css';
 
 export const App = () => (
@@ -12,7 +13,7 @@ export const App = () => (
         <Header />
         <Route exact path='/' component={Landing} />
         <Route exact path='/dashboard_parent' component={Dashboard} />
-        <Route exact path='/signup_parent' component={SignupFormParent} />
+        <Route exact path='/signup_parent' component={SignupPage} />
     </div>
 )
 
