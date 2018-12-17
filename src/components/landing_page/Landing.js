@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
 
 export const Landing = props => props.loading ? <Loader /> : 
     props.loggedIn && props.user.isParent ? <Redirect to='/dashboard_parent' /> :
+    props.loggedIn && !props.user.isParent ? <h1>Welcome {props.user.name}</h1> : 
     (
         <main className='landing'>
             <Slogan />
