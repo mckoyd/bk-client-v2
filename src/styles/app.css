@@ -1,6 +1,6 @@
 .app {
     overflow-y: scroll;
-    background-color: rgb(223, 228, 255);
+    background: linear-gradient(-40deg, #c5e8f1, #f8f8f5);
     display: flex;
     flex-direction: column;
 }

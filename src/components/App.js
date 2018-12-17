@@ -1,28 +1,19 @@
-import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
+
+import Dashboard from './dashboard_parent/Dashboard';
 import Header from './Header';
 import Landing from './landing_page/Landing';
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import '../styles/app.css';
-import Dashboard from './dashboard_parent/Dashboard';
 import SignupFormParent from './signup_page/SignupFormParent';
+import '../styles/app.css';
 
-const mapStateToProps = state => ({
-    loggedIn: state.auth.user !== null
-});
+export const App = () => (
+    <div className='app'>
+        <Header />
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/dashboard_parent' component={Dashboard} />
+        <Route exact path='/signup_parent' component={SignupFormParent} />
+    </div>
+)
 
-class App extends React.Component{
-    
-    render(){
-        return (
-            <div className='app'>
-                <Header />
-                <Route exact path='/' component={Landing} />
-                <Route exact path='/dashboard_parent' component={Dashboard} />
-                <Route exact path='/signup_parent' component={SignupFormParent} />
-            </div>
-        )
-    }
-}
-
-export default withRouter(connect(mapStateToProps)(App))
+export default withRouter(App)
