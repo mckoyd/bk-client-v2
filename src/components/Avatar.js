@@ -1,19 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const avatars = [
-    require('../images/avatars/boy1.png'), 
-    require('../images/avatars/boy2.png'),
-    require('../images/avatars/boy3.png'),
-    require('../images/avatars/boy4.png'),
-    require('../images/avatars/boy5.png'),
-    require('../images/avatars/boy6.png'),
-    require('../images/avatars/girl1.png'),
-    require('../images/avatars/girl2.png'),
-    require('../images/avatars/girl3.png'),
-    require('../images/avatars/girl4.png') 
-    ]
+const mapStateToProps = state => ({
+    avatars: state.toggles.avatarSlides.avatars,
+})
 export const Avatar = props => (
-    <img src={avatars[Math.floor(Math.random()*avatars.length)]} 
+    <img src={props.avatars[props.avatar]} 
         alt='avatar'
         className='avatar' />
 );
+
+export default connect(mapStateToProps)(Avatar)

@@ -1,4 +1,4 @@
-import { Avatar } from '../Avatar';
+import Avatar from '../Avatar';
 import { connect } from 'react-redux';
 import React from 'react';
 import { fetchTasks } from '../../actions/tasks';
@@ -23,7 +23,7 @@ export class ParentCards extends React.Component {
                     currentPoints={child.currentPoints}
                     totalPoints={child.totalPoints} />
                 <div className='avatar-task'>
-                    <Avatar />
+                    <Avatar avatar={child.avatar}/>
                     <TaskList child={child} />
                 </div>
                 <button type='button'
