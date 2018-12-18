@@ -86,6 +86,7 @@ export const SignupFormParent = props => {
                         />
                     <button className='login-btn'
                         type='submit'
+                        id='parent-login'
                         disabled={props.pristine || props.submitting}>
                         log in
                     </button>
