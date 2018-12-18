@@ -20,7 +20,8 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
     error: state.auth.error,
     user: state.auth.user,
-    avatarChoice: state.toggles.avatarSlides.avatarChoice
+    avatarChoice: state.toggles.avatarSlides.avatarChoice,
+    addChild: state.toggles.sideNav.addChild
 })
 export const SignupFormChild = props => {
     let error;
@@ -42,7 +43,7 @@ export const SignupFormChild = props => {
                             signupPassword, 
                             signupConfirmPassword,
                             props.avatarChoice))
-                        props.dispatch(toggleAddChild())
+                        if(!props.addChild) props.dispatch(toggleAddChild())
                     }
                 )} >
                 <h3 className='child-form-heading'>Add a Child Account</h3>
