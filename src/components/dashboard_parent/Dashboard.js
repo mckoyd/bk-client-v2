@@ -18,7 +18,7 @@ export const Dashboard = props => {
     return(
         <div>
             {props.user.isParent ? 
-                Object.keys(props.user.childId).length === 0 || props.addChild ? 
+                props.user.childId.length === 0 || props.addChild ? 
                     (<SignupFormChild />) 
                         : <ParentCards />
                         : <h1>Welcome Kid! username: {props.user.username}</h1>}
