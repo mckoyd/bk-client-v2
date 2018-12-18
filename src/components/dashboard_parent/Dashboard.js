@@ -15,11 +15,11 @@ const mapStateToProps = state => ({
 
 export const Dashboard = props => {
     if(!props.loggedIn || !props.user.isParent) return <Redirect to='/' />;
+    console.log(props.user.childId.length < 1)
     return(
         <div>
             {props.user.isParent ? 
-                props.user.childId.length === 0 || props.addChild ? 
-                    (<SignupFormChild />) 
+                props.user.childId.length < 1 || props.addChild ? <SignupFormChild />
                         : <ParentCards />
                         : <h1>Welcome Kid! username: {props.user.username}</h1>}
         </div>
