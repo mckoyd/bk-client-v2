@@ -2,9 +2,11 @@ import {
     TOGGLE_LOGIN_CHOICE, 
     TOGGLE_SIDE_NAV, 
     TOGGLE_ADD_CHILD, 
-    TOGGLE_ADD_TASK 
+    TOGGLE_ADD_TASK, 
+    GO_TO_PREV_SLIDE,
+    GO_TO_NEXT_SLIDE,
+    CHOOSE_AVATAR
 } from "../actions/toggles";
-
 
 const initState = {
     loginChoice: { parent: true, child: false },
@@ -16,7 +18,24 @@ const initState = {
         addChild: false,
         deleteChild: false,
         deleteParent: false,
+    },
+    avatarSlides: {
+        avatars: [
+            require('../images/avatars/boy1.png'), 
+            require('../images/avatars/boy2.png'),
+            require('../images/avatars/boy3.png'),
+            require('../images/avatars/boy4.png'),
+            require('../images/avatars/boy5.png'),
+            require('../images/avatars/boy6.png'),
+            require('../images/avatars/girl1.png'),
+            require('../images/avatars/girl2.png'),
+            require('../images/avatars/girl3.png'),
+            require('../images/avatars/girl4.png') 
+        ],
+        currentIndex: 0,
+        avatarChoice: null
     }
+
 }
 
 export default (state=initState, action) => {
@@ -47,6 +66,27 @@ export default (state=initState, action) => {
             return {
                 ...state, addTask: {
                     view: !state.addTask.view, childId: action.childId
+                }
+            }
+        case GO_TO_PREV_SLIDE:
+            return {
+                ...state, 
+                avatarSlides: { 
+                    ...state.avatarSlides, currentIndex: state.avatarSlides.currentIndex - 1
+                }
+            }
+        case GO_TO_NEXT_SLIDE:
+            return {
+                ...state, 
+                avatarSlides: { 
+                    ...state.avatarSlides, currentIndex: state.avatarSlides.currentIndex + 1
+                }
+            }
+        case CHOOSE_AVATAR:
+            return {
+                ...state,
+                avatarSlides: {
+                    ...state.avatarSlides, avatarChoice: action.avatar
                 }
             }
         default:

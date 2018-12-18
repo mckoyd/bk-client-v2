@@ -1,3 +1,8 @@
+.signup-page {
+    height: 90vh;
+    overflow: scroll;
+}
+
 .child-signup-form {
     overflow: scroll;
     height: 90vh;
@@ -69,6 +74,12 @@
     letter-spacing: 0.03em;
 }
 
+.signup-form-body .avatar-label {
+    display: block;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
 .signup-form-body .form-input,
 .add-task-body .form-input {
     margin: 0 auto 1em auto;
@@ -95,6 +106,11 @@
     padding: 0.5em 0;
     color: white;
     font-family: 'Oswald';
+}
+
+.signup-form-body .login-btn {
+    display: block;
+    margin: 0 auto;
 }
 
 .signup-form-body .cancel-signup,

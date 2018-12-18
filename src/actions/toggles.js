@@ -12,3 +12,12 @@ export const toggleAddTask = childId => ({ type: TOGGLE_ADD_TASK, childId });
 
 export const TOGGLE_TASK_DETAILS = 'TOGGLE_TASK_DETAILS';
 export const toggleTaskDetails = task => ({ type: TOGGLE_TASK_DETAILS, task });
+
+export const GO_TO_PREV_SLIDE = 'GO_TO_PREV_SLIDE';
+export const goToPrevSlide = () => ({ type: GO_TO_PREV_SLIDE });
+
+export const GO_TO_NEXT_SLIDE = 'GO_TO_NEXT_SLIDE';
+export const goToNextSlide = () => ({ type: GO_TO_NEXT_SLIDE });
+
+export const CHOOSE_AVATAR = 'CHOOSE_AVATAR';
+export const chooseAvatar = avatar => ({ type: CHOOSE_AVATAR, avatar })

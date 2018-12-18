@@ -81,13 +81,13 @@ export const signupParent = (username, password, password2, name, email) => disp
     );
 }
 
-export const signupChild = (username, name, password, password2) => (dispatch, getState) => {
+export const signupChild = (username, name, password, password2, avatarChoice) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return (
         fetch(`${API_BASE_URL}/users/register_child`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${authToken}` },
-            body: JSON.stringify({ username, name, password, password2})
+            body: JSON.stringify({ username, name, password, password2, avatarChoice})
         })
         .then(res => {
             if(!res.ok) res.json()

@@ -12,7 +12,6 @@ import '../../styles/signup.css';
 import { signupParent } from '../../actions/auth';
 
 
-
 const matchesPassword = matches('signupPassword');
 const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
@@ -40,7 +39,8 @@ export const SignupFormParent = props => {
                             signupPassword, 
                             signupConfirmPassword, 
                             signupName, 
-                            signupEmail))
+                            signupEmail
+                            ))
                     }
                 )} >
                 <h3 className='parent-form-heading'>Create an account</h3>

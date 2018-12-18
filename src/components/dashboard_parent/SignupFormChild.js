@@ -11,6 +11,7 @@ import React from 'react';
 import '../../styles/signup.css';
 import { signupChild } from '../../actions/auth';
 import { toggleAddChild } from '../../actions/toggles';
+import AvatarSlider from '../AvatarSlider';
 
 
 
@@ -18,7 +19,8 @@ const matchesPassword = matches('signupPassword');
 const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
     error: state.auth.error,
-    user: state.auth.user
+    user: state.auth.user,
+    avatarChoice: state.toggles.avatarSlides.avatarChoice
 })
 export const SignupFormChild = props => {
     let error;
@@ -38,7 +40,8 @@ export const SignupFormChild = props => {
                             signupUsername,
                             signupName, 
                             signupPassword, 
-                            signupConfirmPassword))
+                            signupConfirmPassword,
+                            props.avatarChoice))
                         props.dispatch(toggleAddChild())
                     }
                 )} >
@@ -75,9 +78,11 @@ export const SignupFormChild = props => {
                         id='signupConfirmPassword'
                         validate={[required, nonEmpty, matchesPassword]} 
                         />
+                    <label htmlFor='avatarChoice' className='avatar-label'>choose an avatar</label>
+                    <AvatarSlider />
                     <button className='login-btn'
                         type='submit'
-                        disabled={props.pristine || props.submitting}>
+                        disabled={props.pristine || props.submitting || props.avatarChoice === null}>
                         add child
                     </button>
                     <button className='cancel-signup'
