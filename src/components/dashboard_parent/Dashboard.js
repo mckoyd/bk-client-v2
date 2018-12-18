@@ -5,12 +5,14 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import SignupFormChild from './SignupFormChild';
 import ParentCards from './ParentCards';
+import { Loader } from '../Loader';
 
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.user !== null,
     user: state.auth.user,
-    addChild: state.toggles.sideNav.addChild
+    addChild: state.toggles.sideNav.addChild,
+    loading: state.auth.loading
 });
 
 export const Dashboard = props => {
@@ -18,7 +20,8 @@ export const Dashboard = props => {
     console.log(props.user.childId.length < 1)
     return(
         <div>
-            {props.user.isParent ? 
+            {props.loading ? <Loader /> :
+                props.user.isParent ? 
                 props.user.childId.length < 1 || props.addChild ? <SignupFormChild />
                         : <ParentCards />
                         : <h1>Welcome Kid! username: {props.user.username}</h1>}

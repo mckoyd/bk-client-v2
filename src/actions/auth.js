@@ -65,6 +65,7 @@ export const loginChild = (username, password) => dispatch => {
 }
 
 export const signupParent = (username, password, password2, name, email) => dispatch => {
+    dispatch(authRequest());
     return (
         fetch(`${API_BASE_URL}/users/register_parent`, {
             method: 'POST',
@@ -82,6 +83,7 @@ export const signupParent = (username, password, password2, name, email) => disp
 }
 
 export const signupChild = (username, name, password, password2, avatar) => (dispatch, getState) => {
+    dispatch(authRequest());
     const authToken = getState().auth.authToken;
     return (
         fetch(`${API_BASE_URL}/users/register_child`, {
@@ -100,6 +102,7 @@ export const signupChild = (username, name, password, password2, avatar) => (dis
 }
 
 export const refreshAuthToken = () => (dispatch, getState) => {
+    dispatch(authRequest());
     const authToken = getState().auth.authToken;
     return (
         fetch(`${API_BASE_URL}/users/refresh`, {
