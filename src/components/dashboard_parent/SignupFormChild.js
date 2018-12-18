@@ -87,6 +87,7 @@ export const SignupFormChild = props => {
                     </button>
                     <button className='cancel-signup'
                     type='button'
+                    disabled={props.user.childId.length === 0}
                     onClick={() => props.dispatch(toggleAddChild())}>
                     cancel
                     </button>
