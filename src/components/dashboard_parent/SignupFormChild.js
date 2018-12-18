@@ -43,7 +43,7 @@ export const SignupFormChild = props => {
                             signupPassword, 
                             signupConfirmPassword,
                             props.avatarChoice))
-                        if(!props.addChild) props.dispatch(toggleAddChild())
+                        if(props.addChild) props.dispatch(toggleAddChild())
                     }
                 )} >
                 <h3 className='child-form-heading'>Add a Child Account</h3>
