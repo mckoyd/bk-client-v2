@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 const clicked = { 
     border: 'inset', 
     backgroundColor: 'rgb(0, 96, 96)',
-    color: '#fff' }, unclicked = { backgroundColor: '#fff' };
+    color: '#fff' }, unclicked = { backgroundColor: '#fff', border: 'outset' };
 
 export const AvatarSlider = props => (
     <div className='slider'>

@@ -14,7 +14,7 @@ export const LoginForms = props => {
     const clicked = { 
         border: 'inset', 
         backgroundColor: 'rgb(0, 96, 96)',
-        color: '#fff' }, unclicked = { backgroundColor: '#fff' };
+        color: '#fff' }, unclicked = { backgroundColor: '#fff', border: 'outset' };
     return(
         <section className='login-forms'>
             <div className='login-choice'>
