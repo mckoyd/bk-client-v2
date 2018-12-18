@@ -80,7 +80,7 @@ export const SignupFormChild = props => {
                         id='signupConfirmPassword'
                         validate={[required, nonEmpty, matchesPassword]} 
                         />
-                    <label htmlFor='avatarChoice' className='avatar-label'>choose an avatar</label>
+                    <label htmlFor='avatarChoice' className='avatar-label'>click an avatar</label>
                     <AvatarSlider />
                     <button className='login-btn'
                         type='submit'
