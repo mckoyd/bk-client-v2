@@ -21,3 +21,6 @@ export const goToNextSlide = () => ({ type: GO_TO_NEXT_SLIDE });
 
 export const CHOOSE_AVATAR = 'CHOOSE_AVATAR';
 export const chooseAvatar = avatar => ({ type: CHOOSE_AVATAR, avatar })
+
+export const CLEAR_AVATAR_CHOICE = 'CLEAR_AVATAR_CHOICE';
+export const clearAvatarChoice = () => ({ type: CLEAR_AVATAR_CHOICE })

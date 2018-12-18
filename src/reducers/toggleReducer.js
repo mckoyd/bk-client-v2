@@ -5,7 +5,8 @@ import {
     TOGGLE_ADD_TASK, 
     GO_TO_PREV_SLIDE,
     GO_TO_NEXT_SLIDE,
-    CHOOSE_AVATAR
+    CHOOSE_AVATAR,
+    CLEAR_AVATAR_CHOICE
 } from "../actions/toggles";
 
 const initState = {
@@ -21,16 +22,16 @@ const initState = {
     },
     avatarSlides: {
         avatars: [
-            require('../images/avatars/boy1.png'), 
+            require('../images/avatars/boy1.png'),
+            require('../images/avatars/girl1.png'), 
             require('../images/avatars/boy2.png'),
-            require('../images/avatars/boy3.png'),
-            require('../images/avatars/boy4.png'),
-            require('../images/avatars/boy5.png'),
-            require('../images/avatars/boy6.png'),
-            require('../images/avatars/girl1.png'),
             require('../images/avatars/girl2.png'),
+            require('../images/avatars/boy3.png'),
             require('../images/avatars/girl3.png'),
-            require('../images/avatars/girl4.png') 
+            require('../images/avatars/boy4.png'),
+            require('../images/avatars/girl4.png'),
+            require('../images/avatars/boy5.png'),
+            require('../images/avatars/boy6.png')    
         ],
         currentIndex: 0,
         avatarChoice: null
@@ -87,6 +88,15 @@ export default (state=initState, action) => {
                 ...state,
                 avatarSlides: {
                     ...state.avatarSlides, avatarChoice: action.avatar
+                }
+            }
+        case CLEAR_AVATAR_CHOICE:
+            return {
+                ...state, 
+                avatarSlides: {
+                    ...state.avatarSlides,
+                    currentIndex: 0,
+                    avatarChoice: null 
                 }
             }
         default:

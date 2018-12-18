@@ -10,7 +10,7 @@ import { nonEmpty, required, isTrimmed, matches } from '../../validators';
 import React from 'react';
 import '../../styles/signup.css';
 import { signupChild } from '../../actions/auth';
-import { toggleAddChild } from '../../actions/toggles';
+import { toggleAddChild, clearAvatarChoice } from '../../actions/toggles';
 import AvatarSlider from '../AvatarSlider';
 
 
@@ -43,6 +43,7 @@ export const SignupFormChild = props => {
                             signupPassword, 
                             signupConfirmPassword,
                             props.avatarChoice))
+                        props.dispatch(clearAvatarChoice());
                         if(props.addChild) props.dispatch(toggleAddChild())
                     }
                 )} >
@@ -89,7 +90,11 @@ export const SignupFormChild = props => {
                     <button className='cancel-signup'
                     type='button'
                     disabled={props.user.childId.length === 0}
-                    onClick={() => props.dispatch(toggleAddChild())}>
+                    onClick={() => {
+                        props.dispatch(toggleAddChild()); 
+                        props.dispatch(clearAvatarChoice());
+                        }
+                    }>
                     cancel
                     </button>
                 </div>
